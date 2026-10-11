@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulte seu CEP e calcule uma estimativa de frete de moto em Fortaleza.">
+    <title>FreteMoto CE | Calcule seu frete</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topo">
+        <div class="container navegacao">
+            <a class="logo" href="#">FreteMoto <span>CE</span></a>
+            <span class="selo">Fortaleza - CE</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="container banner-conteudo">
+                <span class="etiqueta">ENTREGA RÁPIDA</span>
+                <h1>Calcule seu frete de moto em Fortaleza</h1>
+                <p>
+                    Informe seu CEP e descubra a distância e uma
+                    estimativa de preço saindo da UNINASSAU Parangaba.
+                </p>
+                <a href="#calculadora" class="botao">Calcular agora</a>
+            </div>
+        </section>
+
+        <section class="container secao" id="calculadora">
+            <div class="cabecalho-secao">
+                <span class="etiqueta">SIMULAÇÃO DE ENTREGA</span>
+                <h2>Onde será a entrega?</h2>
+                <p>Digite o CEP do destino para consultar o endereço.</p>
+            </div>
+
+            <form id="form-frete">
+                <div class="campo">
+                    <label for="cep">CEP de destino</label>
+                    <div class="linha-cep">
+                        <input
+                            id="cep"
+                            name="cep"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="Ex.: 60740-020"
+                            maxlength="9"
+                            autocomplete="postal-code"
+                            required
+                        >
+                        <button type="button" id="consultar-cep" class="botao botao-secundario">
+                            Consultar CEP
+                        </button>
+                    </div>
+                </div>
+
+                <div id="endereco" class="endereco escondido">
+                    <h3>Endereço encontrado</h3>
+                    <p><strong>Rua:</strong> <span id="rua">-</span></p>
+                    <p><strong>Bairro:</strong> <span id="bairro">-</span></p>
+                    <p><strong>Cidade:</strong> <span id="cidade">-</span></p>
+                    <p><strong>Estado:</strong> <span id="estado">-</span></p>
+                </div>
+
+                <div class="campo">
+                    <label for="numero">Número do imóvel (opcional)</label>
+                    <input
+                        id="numero"
+                        type="text"
+                        placeholder="Ex.: 250"
+                        maxlength="20"
+                    >
+                    <small>O número pode ajudar a localizar o destino com mais precisão.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="complemento">Complemento (opcional)</label>
+                    <input
+                        id="complemento"
+                        type="text"
+                        placeholder="Ex.: apartamento, bloco ou ponto de referência"
+                        maxlength="100"
+                    >
+                </div>
+
+                <button type="submit" id="calcular" class="botao botao-calcular">
+                    Calcular distância e frete
+                </button>
+
+                <p id="mensagem" role="status" aria-live="polite"></p>
+            </form>
+
+            <section id="resultado" class="resultado escondido"
+                aria-live="polite">
+                <div class="resultado-topo">
+                    <span class="etiqueta">RESULTADO DA SIMULAÇÃO</span>
+                    <h2>Estimativa do seu frete</h2>
+                </div>
+
+                <div class="grade-resultados">
+                    <article class="cartao">
+                        <span>Distância estimada</span>
+                        <strong id="distancia">-- km</strong>
+                    </article>
+
+                    <article class="cartao">
+                        <span>Tempo estimado</span>
+                        <strong id="tempo">-- min</strong>
+                    </article>
+
+                    <article class="cartao cartao-preco">
+                        <span>Frete estimado</span>
+                        <strong id="preco">R$ 0,00</strong>
+                    </article>
+                </div>
+
+                <div class="detalhes">
+                    <p><strong>Origem:</strong> UNINASSAU Parangaba</p>
+                    <p><strong>Destino:</strong> <span id="destino-final">-</span></p>
+                    <p><strong>Tarifa base:</strong> <span id="tarifa-base">-</span></p>
+                    <p><strong>Valor por quilômetro:</strong> <span id="tarifa-km">-</span></p>
+                    <p><strong>Valor por minuto:</strong> <span id="tarifa-minuto">-</span></p>
+                </div>
+
+                <a
+                    class="botao botao-mapa"
+                    id="abrir-rota"
+                    href="https://www.openstreetmap.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver rota no mapa
+                </a>
+
+                <p class="aviso">
+                    Este valor é uma simulação de frete, não uma cotação
+                    oficial do Uber Moto. A distância e o tempo dependem
+                    da rota encontrada. O preço real de um serviço de
+                    transporte pode variar conforme trânsito, demanda,
+                    disponibilidade e tarifas vigentes.
+                </p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>FreteMoto CE · Projeto demonstrativo de cálculo de frete</p>
+        </div>
+    </footer>
+</body>
+</html>
